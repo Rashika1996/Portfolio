@@ -1,20 +1,17 @@
-{% load staticfiles %}
 <!doctype html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Rashika Bhargava</title>
+    <title>Rashika's blog</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-  
   </head>
 
   <body>
@@ -28,43 +25,31 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="https://www.linkedin.com/in/rashika-bhargava-876bbbb7">Linkedln</a>
-                <a class="nav-item nav-link" href="{% static 'ResumeRashikaBhargava.pdf' %}">Resume</a>
-                <a class="nav-item nav-link" href="{%  url 'blog' %}">Blog</a>
+                <a class="nav-item nav-link" href="{% static 'ResumeRashikaBhargava.pdf'%}">Resume</a>
+                <a class="nav-item nav-link active" href="{% url 'blog' %}">Blog</a>
               </div>
             </div>
           </nav>
     </header>
 
     <main role="main">
-
-      <section class="jumbotron text-center">
         <div class="container">
-          <img src="{% static 'thumbnail.jpg' %}" alt="failed to load image" class="rounded-circle">
-          <h1 class="jumbotron-heading">Hi, I'm Rashika.</h1>
-          <p class="lead text-muted">Hey! my name is Rashika and I love to create Django websites coz it makes life so easy.<br>Here are some of the projects done by me in past 1 year</p>
-          <p>
-            <a href="mailto:rashika.bhargava@st.niituniversity.in" class="btn btn-primary my-2">Email me</a>
-          </p>
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">     
-          <div class="row">
-          {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ job.image.url }}">
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
+            <h1 class="text-center pt-4">Welcome to Rashika's Blog</h1>
+            <br><br><br>
+            <h2>Latest Blogs</h2>
+            <hr/>
+            {% for value in blog.all %}
+            <div class="pt-4">
+                <a href="{% url 'detail' value.id %}"><h3>{{ value.title }}</h3></a>
+                {{ value.dateTimeView }}<br>
+                <img src="{{ value.image.url }}" class="img-fluid" height="300" width="300" />
+                <br>
+                <p>{{ value.body }}</p>
+                <br><br><br>
             </div>
+            <hr/>
             {% endfor %}
-          </div>
         </div>
-      </div>
-
     </main>
 
     <footer class="text-muted">
