@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'portfoliodb',
         'USER': 'postgres',
         'PASSWORD':'django1234',
-        'HOST':'localhost',
+        'HOST':'rashika-db.cuoe0iga1bcn.us-east-2.rds.amazonaws.com',
         'PORT':'5432',
     }
 }
