@@ -105,7 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+FIXTURE_DIRS = (
+   '/DATA/',
+)
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
