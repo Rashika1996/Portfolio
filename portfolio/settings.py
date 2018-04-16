@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
         'NAME': 'portfoliodb',
         'USER': 'postgres',
         'PASSWORD':'django1234',
-        'HOST':'localhost',
+        'HOST':'rashika-db.cuoe0iga1bcn.us-east-2.rds.amazonaws.com',
         'PORT':'5432',
     }
 """
@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'portfoliodb',
         'USER': 'postgres',
         'PASSWORD':'django1234',
-        'HOST':'rashika-db.cuoe0iga1bcn.us-east-2.rds.amazonaws.com',
+        'HOST':'localhost',
         'PORT':'5432',
     }
 }
@@ -147,3 +147,8 @@ STATIC_URL = '/static/' # This is a url which can be changed according to the ne
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
