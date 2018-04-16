@@ -75,6 +75,17 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+"""
+'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfoliodb',
+        'USER': 'postgres',
+        'PASSWORD':'django1234',
+        'HOST':'localhost',
+        'PORT':'5432',
+    }
+"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -106,7 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 FIXTURE_DIRS = (
-   '/DATA/',
+    '/Fixture/blog/fixtures/',
+    '/Fixture/jobs/fixtures/',
 )
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
